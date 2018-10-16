@@ -10,21 +10,26 @@ package:
 source:
   fn: settings_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/settings_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/settings/settings_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/settings_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/settings/settings_{{ version }}.tar.gz
   sha256: 3edbb172af062d9b28a4e82226c2acfe7511dd073cd1924c13d754c6acd95a24
 
 build:
-  number: 1
+  merge_build_host: True  # [win]
   script: R CMD INSTALL --build .
-  skip: True  # [win32]
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
 
+# Suggests: testthat, knitr
 requirements:
   build:
+    - {{posix}}zip               # [win]
+
+  host:
     - r-base
+
   run:
     - r-base
 
