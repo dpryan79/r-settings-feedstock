@@ -16,7 +16,6 @@ source:
 
 build:
   noarch: generic
-  merge_build_host: True  # [win]
   script: R CMD INSTALL --build .
   number: 1001
   rpaths:
@@ -25,9 +24,6 @@ build:
 
 # Suggests: testthat, knitr
 requirements:
-  build:
-    - {{posix}}zip               # [win]
-
   host:
     - r-base
 
