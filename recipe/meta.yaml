@@ -15,9 +15,10 @@ source:
   sha256: 3edbb172af062d9b28a4e82226c2acfe7511dd073cd1924c13d754c6acd95a24
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
   script: R CMD INSTALL --build .
-  number: 1
+  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
