@@ -38,6 +38,7 @@ test:
 about:
   home: https://cran.r-project.org/web/packages/settings
   license: GPL-3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
   summary: Provides option settings management that goes beyond R's default 'options' function.
     With this package, users can define their own option settings manager holding option
     names, default values and  (if so desired) ranges or sets of allowed option values
@@ -51,5 +52,4 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - dpryan79
     - ocefpaf
